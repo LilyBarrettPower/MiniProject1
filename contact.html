@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link href="style.css" rel="stylesheet">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond&family=Khula&display=swap" rel="stylesheet">
+        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAUezllXLRW3PqlWZctyklvHJ1wTLb_ujo&callback=initMap" async defer></script>
+
+    <title>Sarah Barrett Artist</title>
+</head>
+
+<body>
+    <div class="banner">Sarah Barrett Artist</div>
+
+    <nav class="navbar navbar-expand-lg">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Navbar</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="home.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="portfolio.html">Portfolio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Shop</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="container">
+    <div class="row">
+         <div class="col-md-12 my-5 mx-3" id="formInput">
+            <h2 class="text-center">Please fill out your details</h2>
+            <p class="text-center">We will get back to you ASAP</p>
+            <div class="mb-3 mt-3">
+                <input type="text" class="form-control" id="formInput1" placeholder="Please enter your full name">
+            </div>
+            <div class="mb-3">
+                <input type="text" class="form-control" id="formInput2" placeholder="Please enter your email">
+            </div>
+            <div class="mb-3 input-group-lg">
+                <input type="text" class="form-control" id="formInput3" placeholder="Please enter your message">
+            </div>
+            <div class="text-center">
+            <button type="button" class="btn btn-outline-dark text-center">Submit</button>
+            </div>
+        </div>
+             <div class="col-md-6 mx-3" id="map"></div>
+    </div>
+</div>
+
+    <script>
+
+    function initMap() {
+        const myLatLng = {
+            lat: -43.543697357177734,
+            lng: 171.99880981445312
+        };
+        const map = new google.maps.Map(document.getElementById("map"), {
+            center: myLatLng,
+            fullscreenControl: false,
+            zoomControl: true,
+            zoom: 16,
+            streetViewControl: false
+        });
+        new google.maps.Marker({
+            position: myLatLng,
+            map,
+            title: "Studio location"
+        });
+    }
+    </script>
+</body>
+</html>

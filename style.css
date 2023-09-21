@@ -1,0 +1,214 @@
+
+body {
+    background-color: #D2D2D2;
+    overflow: hidden;
+    height: 100vh;
+    overflow-y: auto;
+}
+
+.banner {
+    width: 100%;
+    height: 200px;
+    padding: 15px;
+    background: #FFE6F2;
+    background-size: 100%;
+    position: relative;
+    z-index: 2;
+    /* To ensure floating images don't go over the banner  */
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 100px;
+    text-align: center;
+    
+}
+
+.navbar {
+    background-color: #F5Cbdd;
+    z-index: 3; 
+    /* to ensure the floating images dont go over the navbar */
+}
+
+#formInput {
+    background-color: #FFE6F2;
+    padding: 20px;
+}
+
+.btn {
+    background-color: #EBEBEB;
+    width: 100px;
+}
+
+/* Styling for the images on the home page, including animations */
+
+.homeImages {
+    width: 255px;
+    height: 240px;
+}
+.image1 {
+    display: inline-block;
+    position: absolute;
+    top: 300px;
+    left: 100px;
+    animation-name: floating;
+    animation-duration: 30s;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: 1;
+}
+
+@keyframes floating {
+
+    0%,
+    100% {
+        transform: translate(0, 0);
+        /* Start and end positions */
+    }
+
+    25% {
+        transform: translate(200px, 200px);
+        /* Move the image diagonally */
+    }
+
+    50% {
+        transform: translate(-150px, 200px);
+        /* Move the image diagonally in the opposite direction */
+    }
+
+    60% {
+        transform: translate(200px, -100px);
+    }
+
+    75% {
+        transform: translate(-200px, 200px);
+        /* Move the image diagonally */
+    }
+
+    80% {
+        transform: translate(80px, 50px);
+    }
+}
+
+.image2 {
+    display: inline-block;
+    position: absolute;
+    top: 300px;
+    left: 600px;
+    animation-name: floating2;
+    animation-duration: 30s;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: 1;
+}
+
+@keyframes floating2 {
+        0%,
+            100% {
+                transform: translate(0, 0);
+                /* Start and end positions */
+            }
+        
+            25% {
+                transform: translate(200px, -50px);
+                /* Move the image diagonally */
+            }
+
+            35% {
+                transform: translate(600px, -30px);
+            }
+        
+            50% {
+                transform: translate(50px, -10px);
+                /* Move the image diagonally in the opposite direction */
+            }
+        
+            75% {
+                transform: translate(50px, 50px);
+                /* Move the image diagonally */
+            }
+
+            85% {
+                transform: translate(300px, -50px)
+            }
+}
+
+.image3 {
+        display: inline-block;
+        position: absolute;
+        top: 300px;
+        left: 1100px;
+        animation-name: floating3;
+        animation-duration: 30s;
+        animation-timing-function: ease-in-out;
+        animation-iteration-count: 1;
+}
+
+@keyframes floating3 {
+
+    0%,
+    100% {
+        transform: translate(0, 0);
+        /* Start and end positions */
+    }
+
+    25% {
+        transform: translate(-250px, -50px);
+        /* Move the image diagonally */
+    }
+
+    50% {
+        transform: translate(-400px, 300px);
+        /* Move the image diagonally in the opposite direction */
+    }
+
+    65% {
+        transform: translate(-150px, -40px)
+    }
+
+    75% {
+        transform: translate(50px, 250px);
+        /* Move the image diagonally */
+    }
+    85% {
+        transform: translate(-10px, 20px);
+    }
+}
+
+/* Styling for the cards on the portfolio page */
+.card-image img {
+    width: 100%;
+    height: auto;
+    border-radius: 15%;
+    margin-top: 50px;
+}
+
+.card-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: x-large;
+}
+
+.card-text {
+    font-family: 'Khula', sans-serif;
+}
+
+/* Styling for the map used in the contact page - google maps API */
+
+#map {
+    height: 400px;
+    width: 100%;
+    border: 1px solid #F5Cbdd;
+}
+
+/* styling for the contact page */
+
+.form-control::placeholder {
+    font-family: 'Khula', sans-serif;
+}
+
+h2 {
+    font-family: 'Cormorant Garamond', serif;
+}
+
+p {
+    font-family: 'Khula', sans-serif;
+}
+
+.btn {
+    font-family: 'Cormorant Garamond', serif;
+}

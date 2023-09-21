@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link href="style.css" rel="stylesheet">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond&family=Khula&display=swap" rel="stylesheet">
+
+    <title>Sarah Barrett Artist</title>
+</head>
+
+<body>
+    <div class="banner">Sarah Barrett Artist</div>
+
+    <nav class="navbar navbar-expand-lg">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Navbar</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="home.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="portfolio.html">Portfolio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Shop</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+        <template id="card-template">
+            <div>
+                <div class="card col-sm-12 col-md-6 col-lg-3 my-3 mx-3">
+                    <div class="card-body text-center">
+                        <div class="card-title"></div>
+                        <div class="card-text"></div>
+                        <div class="card-image"></div>
+                    </div>
+                </div>
+            </div>
+        </template>
+    <div class="row" id="card-list"></div>
+
+<script>
+    const art = [
+            {
+                title: "Barry the Bull",
+                text: "Barry the Bull is an arcrylic painting",
+                src: "/images/Bullpainting.jpeg"
+            },
+            {
+                title: "Mountains of Home",
+                text: "Picturesque view from my front window",
+                src: "/images/mountains.JPG"
+            },
+            {
+                title: "Tui",
+                text: "Large Tui on canvas",
+                src: "/images/Tui.JPG"
+            }
+        ]
+
+
+        const cardList = document.querySelector('#card-list');
+
+        function addCards(item) { // function to add cards 
+
+            const template = document.getElementById("card-template").content.cloneNode(true); // clone the html template and store in template variable
+            const container = template.querySelector('.card'); // store the class card from the template in the container variable
+
+            template.querySelector('.card-title').innerText = item.title; // make the card title the card title
+            template.querySelector('.card-text').innerText = item.text;
+
+         
+                const image = document.createElement('img'); // create an image element for each card
+                image.src = item.src; // source is the src
+                image.alt = item.title; // alt text is the title of the art work 
+                template.querySelector('.card-image').appendChild(image); // images are appended to the card-image html element 
+
+           cardList.appendChild(container); // add each card to the card list
+        }
+
+        art.forEach((item) => { // call the add card function for each item, adding multiple cards 
+            addCards(item);
+        });
+</script>
+</body>
+</html>
