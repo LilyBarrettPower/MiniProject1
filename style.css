@@ -18,13 +18,26 @@ body {
     font-family: 'Cormorant Garamond', serif;
     font-size: 100px;
     text-align: center;
-    
+}
+
+.bannerText {
+        font-family: 'Cormorant Garamond', serif;
+        font-size: 10vw;
+        text-align: center;
+}
+
+
+.card {
+    background-color: #727375;
+    color: white;
 }
 
 .navbar {
     background-color: #F5Cbdd;
     z-index: 3; 
     /* to ensure the floating images dont go over the navbar */
+    font-family: 'Cormorant Garamond', serif;
+    font-size: x-large;
 }
 
 #formInput {
@@ -40,14 +53,14 @@ body {
 /* Styling for the images on the home page, including animations */
 
 .homeImages {
-    width: 255px;
-    height: 240px;
+    width: 20vw;
+    height: 35vh;
 }
 .image1 {
     display: inline-block;
     position: absolute;
-    top: 300px;
-    left: 100px;
+    top: 50vh;
+    left: 15vw;
     animation-name: floating;
     animation-duration: 30s;
     animation-timing-function: ease-in-out;
@@ -63,34 +76,34 @@ body {
     }
 
     25% {
-        transform: translate(200px, 200px);
+        transform: translate(20vw, 20vh);
         /* Move the image diagonally */
     }
 
     50% {
-        transform: translate(-150px, 200px);
+        transform: translate(-15vw, 20vh);
         /* Move the image diagonally in the opposite direction */
     }
 
     60% {
-        transform: translate(200px, -100px);
+        transform: translate(20vw, -10vh);
     }
 
     75% {
-        transform: translate(-200px, 200px);
+        transform: translate(0vw, 10vh);
         /* Move the image diagonally */
     }
 
     80% {
-        transform: translate(80px, 50px);
+        transform: translate(20vw, 30vh);
     }
 }
 
 .image2 {
     display: inline-block;
     position: absolute;
-    top: 300px;
-    left: 600px;
+    top: 50vh;
+    left: 40vw;
     animation-name: floating2;
     animation-duration: 30s;
     animation-timing-function: ease-in-out;
@@ -105,34 +118,34 @@ body {
             }
         
             25% {
-                transform: translate(200px, -50px);
+                transform: translate(20vw, -5vh);
                 /* Move the image diagonally */
             }
 
             35% {
-                transform: translate(600px, -30px);
+                transform: translate(6vw, -30vh);
             }
         
             50% {
-                transform: translate(50px, -10px);
+                transform: translate(50vw, -10vh);
                 /* Move the image diagonally in the opposite direction */
             }
         
             75% {
-                transform: translate(50px, 50px);
+                transform: translate(30vw, 10vh);
                 /* Move the image diagonally */
             }
 
             85% {
-                transform: translate(300px, -50px)
+                transform: translate(10vw, -5vh)
             }
 }
 
 .image3 {
         display: inline-block;
         position: absolute;
-        top: 300px;
-        left: 1100px;
+        top: 50vh;
+        left: 65vw;
         animation-name: floating3;
         animation-duration: 30s;
         animation-timing-function: ease-in-out;
@@ -148,25 +161,25 @@ body {
     }
 
     25% {
-        transform: translate(-250px, -50px);
+        transform: translate(-25vw, -5vh);
         /* Move the image diagonally */
     }
 
     50% {
-        transform: translate(-400px, 300px);
+        transform: translate(-40vw, 20vh);
         /* Move the image diagonally in the opposite direction */
     }
 
     65% {
-        transform: translate(-150px, -40px)
+        transform: translate(-15vw, 25vh)
     }
 
     75% {
-        transform: translate(50px, 250px);
+        transform: translate(0vw, 20vh);
         /* Move the image diagonally */
     }
     85% {
-        transform: translate(-10px, 20px);
+        transform: translate(-10vw, 15vh);
     }
 }
 
@@ -197,8 +210,9 @@ body {
 
 /* styling for the contact page */
 
-.form-control::placeholder {
-    font-family: 'Khula', sans-serif;
+.form-control {
+    border: #F5CBDD;
+    border-width: 5px;
 }
 
 h2 {
@@ -211,4 +225,10 @@ p {
 
 .btn {
     font-family: 'Cormorant Garamond', serif;
+}
+
+.carousel-inner img {
+    width: 200px;
+    height: auto;
+    margin: 10px;
 }
