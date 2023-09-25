@@ -62,7 +62,7 @@ body {
     top: 50vh;
     left: 15vw;
     animation-name: floating;
-    animation-duration: 30s;
+    animation-duration: 10s;
     animation-timing-function: ease-in-out;
     animation-iteration-count: 1;
 }
@@ -76,26 +76,18 @@ body {
     }
 
     25% {
-        transform: translate(20vw, 20vh);
+        transform: translate(10vw, 10vh);
         /* Move the image diagonally */
     }
 
     50% {
-        transform: translate(-15vw, 20vh);
+        transform: translate(20vw, 15vh);
         /* Move the image diagonally in the opposite direction */
     }
 
-    60% {
-        transform: translate(20vw, -10vh);
-    }
-
     75% {
-        transform: translate(0vw, 10vh);
+        transform: translate(-5vw, -6vh);
         /* Move the image diagonally */
-    }
-
-    80% {
-        transform: translate(20vw, 30vh);
     }
 }
 
@@ -105,7 +97,7 @@ body {
     top: 50vh;
     left: 40vw;
     animation-name: floating2;
-    animation-duration: 30s;
+    animation-duration: 10s;
     animation-timing-function: ease-in-out;
     animation-iteration-count: 1;
 }
@@ -118,26 +110,17 @@ body {
             }
         
             25% {
-                transform: translate(20vw, -5vh);
+                transform: translate(-45vw, -20vh);
                 /* Move the image diagonally */
             }
-
-            35% {
-                transform: translate(6vw, -30vh);
-            }
-        
             50% {
-                transform: translate(50vw, -10vh);
+                transform: translate(-5vw, -10vh);
                 /* Move the image diagonally in the opposite direction */
             }
         
             75% {
-                transform: translate(30vw, 10vh);
+                transform: translate(20vw, 15vh);
                 /* Move the image diagonally */
-            }
-
-            85% {
-                transform: translate(10vw, -5vh)
             }
 }
 
@@ -147,7 +130,7 @@ body {
         top: 50vh;
         left: 65vw;
         animation-name: floating3;
-        animation-duration: 30s;
+        animation-duration: 10s;
         animation-timing-function: ease-in-out;
         animation-iteration-count: 1;
 }
@@ -161,25 +144,17 @@ body {
     }
 
     25% {
-        transform: translate(-25vw, -5vh);
+        transform: translate(-30vw, 25vh);
         /* Move the image diagonally */
     }
 
     50% {
-        transform: translate(-40vw, 20vh);
+        transform: translate(0vw, -10vh);
         /* Move the image diagonally in the opposite direction */
     }
-
-    65% {
-        transform: translate(-15vw, 25vh)
-    }
-
     75% {
-        transform: translate(0vw, 20vh);
+        transform: translate(20vw, -30vh);
         /* Move the image diagonally */
-    }
-    85% {
-        transform: translate(-10vw, 15vh);
     }
 }
 
