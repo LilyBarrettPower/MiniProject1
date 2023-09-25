@@ -99,15 +99,6 @@
             <div id="additionalImagesCarousel" class="carousel slide mt-4" data-bs-ride="carousel">
                 <div class="carousel-inner">
                 </div>
-                <!-- Create the left and right arrows to navigate the carousel: -->
-                <button class="carousel-control-prev" type="button" data-bs-target="#additionalImagesCarousel" data-bs-slide="prev">
-                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Previous</span>
-                </button>
-                <button class="carousel-control-next" type="button" data-bs-target="#additionalImagesCarousel" data-bs-slide="next">
-                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Next</span>
-                </button>
             </div>
         </div>
     </div>
@@ -125,7 +116,7 @@
                 src: "/images/Bullpainting.jpeg",
                 category: "Painting",
                 // Create an array to contain the additional images for the carousel:
-                additionalImages: ["/images/Bullpainting2.JPG", "/images/Bullpainting3.JPG"]
+                additionalImages: ["/images/Bullpainting2.JPG", "/images/Bullpainting3.JPG", "/images/bullpainting5.JPG"]
             },
             {
                 title: "Mountains of Home",
@@ -275,6 +266,7 @@
                         carouselItem.classList.add('active');
                     }
                     const img = document.createElement('img'); //Create a new image element
+
                     img.src = imgURL; //set the src of the image as the imgURL
                     img.alt = item.title + 'Image' + (imgIndex + 1); // create a descriptive alternative text for each image
                     
