@@ -238,3 +238,29 @@ p {
     height: auto;
     margin: 10px;
 }
+
+/* Change the font of the modal pop up title to the title font */
+#modal-title {
+    font-family: 'Cormorant Garamond', serif;
+}
+
+/* Change the font of the modal pop up text to the text font */
+#modal-text {
+    font-family: 'Khula', sans-serif;
+}
+
+/* change the font of the modal label to the title font */
+#modalLabel {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: x-large;
+}
+
+/* Change the font of the title of the message submitted modal */
+.modal-title {
+    font-family: 'Cormorant Garamond', serif;
+}
+
+/* change the font of the body of the message submitted modal  */
+.modal-body {
+    font-family: 'Khula', sans-serif;
+}
