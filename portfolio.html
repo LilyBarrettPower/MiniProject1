@@ -33,6 +33,7 @@
                         <a class="nav-link" href="home.html">Home</a>
                     </li>
                     <li class="nav-item">
+                        <!-- Portfolio page is "current" -->
                         <a class="nav-link active" aria-current="page" href="portfolio.html">Portfolio</a>
                     </li>
                     <li class="nav-item">
@@ -58,13 +59,13 @@
                         <option value="all" selected>Show all categories</option>
                         <option value="Painting">Paintings</option>
                         <option value="Sculpture">Sculptures</option>
-                         <!-- Categories will be added here by the JS script -->
                     </select>
                 </div>
             </div>
         </div>
 <!-- HTML for the cards template: -->
         <template id="card-template">
+            <!-- Using bootstrap to make the cards responsive: -->
             <div class="card col-sm-12 col-md-6 col-lg-3 my-4 mx-lg-5 mx-sm-3">
                 <div>
                     <div class="card-body text-center">
@@ -72,6 +73,7 @@
                         <div class="card-title"></div>
                         <div class="card-text"></div>
                         <div class="card-image"></div>
+                        <!-- Create a button to start the modal bootstrap pop up: -->
                         <button type="button" class="btn mt-3 view-details" data-bs-toggle="modal">
                             View more
                         </button>
@@ -81,7 +83,7 @@
         </template>
     <div class="row" id="card-list"></div>
 
-    <!-- HTML for the modal template: -->
+    <!-- HTML for the bootstrap modal template: -->
 <div class="modal fade" id="modalTemplate" tabindex="-1" aria-labelledby="modalLabel" aria-hidden="true">
 <div class="modal-dialog modal-dialog-centered modal-lg">
     <div class="modal-content">
@@ -92,10 +94,12 @@
         <div class="modal-body">
             <h4 id="modal-title"></h4>
             <p id="modal-text"></p>
+            <!-- Add the image carousel for the modal pop up: -->
             <img src="" id="modal-image" class="img-fluid" alt="Item Image">
             <div id="additionalImagesCarousel" class="carousel slide mt-4" data-bs-ride="carousel">
                 <div class="carousel-inner">
                 </div>
+                <!-- Create the left and right arrows to navigate the carousel: -->
                 <button class="carousel-control-prev" type="button" data-bs-target="#additionalImagesCarousel" data-bs-slide="prev">
                     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                     <span class="visually-hidden">Previous</span>
@@ -112,6 +116,7 @@
 
 
 <script>
+    // Create an array of objects which contains the data for the portfolio cards:
     const art = [
             {
                 title: "Barry the Bull",
@@ -119,6 +124,7 @@
                 modalText: "This is the longer text for Barry the Bull",
                 src: "/images/Bullpainting.jpeg",
                 category: "Painting",
+                // Create an array to contain the additional images for the carousel:
                 additionalImages: ["/images/Bullpainting2.JPG", "/images/Bullpainting3.JPG"]
             },
             {
@@ -179,7 +185,7 @@
             const container = template.querySelector('.card'); // store the class card from the template in the container variable
 
             template.querySelector('.card-title').innerText = item.title; // make the card title the card title
-            template.querySelector('.card-text').innerText = item.text;
+            template.querySelector('.card-text').innerText = item.text; // Make the card text the text of the card
 
          
             const image = document.createElement('img'); // create an image element for each card
@@ -187,18 +193,18 @@
             image.alt = item.title; // alt text is the title of the art work 
             template.querySelector('.card-image').appendChild(image); // images are appended to the card-image html element 
 
-
-            const categoryIcons = template.querySelector('.category-icons');
-            if(item.category === 'Painting') {
-                const paintingIcon =  document.createElement('i');
-                paintingIcon.classList.add('fas', 'fa-paint-brush', 'painting-icon');
-                paintingIcon.style.float = 'left';
-                categoryIcons.appendChild(paintingIcon)
-            } else {
-                const sculptureIcon = document.createElement('i');
-                sculptureIcon.classList.add('fas', 'fa-mountain', 'sculpture-icon');
-                sculptureIcon.style.float = 'left';
-                categoryIcons.appendChild(sculptureIcon)
+            // Add the icons from the font-awesome library to each card depending on their category:
+            const categoryIcons = template.querySelector('.category-icons'); // Select the category-icons html element to store the categoryIcons
+            if(item.category === 'Painting') { // if the category is "Painting" this condition is met
+                const paintingIcon =  document.createElement('i'); //Create the element i for the icon
+                paintingIcon.classList.add('fas', 'fa-paint-brush', 'painting-icon'); // Add the fa-paint-brush icon to the i element
+                paintingIcon.style.float = 'left'; // Make the icon float to the left hand side of the card
+                categoryIcons.appendChild(paintingIcon) // add the painting icon to categoryIcons
+            } else { // if the above condition is not met, the following code will run:
+                const sculptureIcon = document.createElement('i');  // create the element i for the icon
+                sculptureIcon.classList.add('fas', 'fa-mountain', 'sculpture-icon'); // add the fa-mountain icon
+                sculptureIcon.style.float = 'left'; // float the icon to the left of the card
+                categoryIcons.appendChild(sculptureIcon) // add the icon to categoryIcons 
             }
            cardList.appendChild(container); // add each card to the card list
         }
@@ -210,62 +216,76 @@
 
 
         // Javascript for the search field and filter categories:
+        // Select the HTML elements:
         const searchInput = document.getElementById('searchInput');
         const categorySelect = document.getElementById('categorySelect');
         const cards = document.getElementById('card-list');
 
+        // Add event listeners so that when the user interacts with the search and filter things the functions are called
+        // When the user inputs something into the search field the filterPortfolio is called
         searchInput.addEventListener('input', filterPortfolio);
+        // When the user changes the category in the filter thing; filterPortfolio will be called
         categorySelect.addEventListener('change', filterPortfolio);
 
         function filterPortfolio() {
+            // extract the search term (toLowerCase to ensure the search is found) .trim() removes any white spaces, line breaks or tabs so the search is accurate
             const searchTerm = searchInput.value.toLowerCase().trim();        
             const selectedCategory = categorySelect.value;      
-            cardList.innerHTML = "";       
+            cardList.innerHTML = "";        // clear the contents of the cardList
 
-            art.forEach((item) => {
-                const cardTitle = item.title.toLowerCase();
-                const cardCategory = item.category.toLowerCase();
+            art.forEach((item) => { //iterate over the art array
+                const cardTitle = item.title.toLowerCase(); // convert the title to lowercase so the search is found even if the user uses capitals or not 
+                const cardCategory = item.category.toLowerCase(); // convert the category to lowercase 
 
-                const titleMatch = cardTitle.includes(searchTerm);
-                const categoryMatch = selectedCategory === "all" || item.category === selectedCategory;
+                const titleMatch = cardTitle.includes(searchTerm); // if the title includes the search term
+                const categoryMatch = selectedCategory === "all" || item.category === selectedCategory; // if the selected category is all OR if the category of the item matches the selected category
 
-                if (titleMatch && categoryMatch) {
+                if (titleMatch && categoryMatch) { // if both conditions above are met, the addCards function is called and the selected cards are displayed 
                     addCards(item);
                 }
             });
         }
+        // call the filterPortfolio function when the page loads 
         filterPortfolio();
 
         // Javascript for the modal:
 
         document.querySelectorAll('.view-details').forEach((button, index) => {
-            button.addEventListener('click', () => {
-                const item = art[index];
+            // Select the view-details buttons (iterate over the buttons as there are mutliple - on each portfolio card)
+            button.addEventListener('click', () => { // add an event listener to the button, the function will be called when the button is clicked
+                const item = art[index]; //retrieve the data associated with the art array associated with the index (the card of the button just clicked)
 
+                // Update the content of the modal with the information depending on the selected item
                 const modal = document.getElementById('modalTemplate');
                 modal.querySelector('#modal-title').textContent = item.title;
                 modal.querySelector('#modal-text').textContent = item.modalText;
+                // The main image is the same image as on the portoflio card:
                 modal.querySelector('#modal-image').src = item.src;
 
+                // Clear the content of the modal to prepare for displaying the additional images:
                 const carouselInner = modal.querySelector('.carousel-inner');
                 carouselInner.innerHTML = '';
 
+                // iterate through the additional images array 
                 item.additionalImages.forEach((imgURL, imgIndex) => {
-                    const carouselItem = document.createElement('span');
-                    carouselItem.classList.add('.carousel-item');
-                    if(imgIndex === 0) {
+                    const carouselItem = document.createElement('span'); // create a span element to house the carousel items
+                    carouselItem.classList.add('.carousel-item'); // add each carousel item
+                    if(imgIndex === 0) { //if the image is the first image then this condition is met
+                        // the active class is added to the first carousel item so that it is displayed initially
                         carouselItem.classList.add('active');
                     }
-                    const img = document.createElement('img');
-                    img.src = imgURL;
-                    img.alt = item.title + 'Image' + (imgIndex + 1);
+                    const img = document.createElement('img'); //Create a new image element
+                    img.src = imgURL; //set the src of the image as the imgURL
+                    img.alt = item.title + 'Image' + (imgIndex + 1); // create a descriptive alternative text for each image
                     
-
-                    carouselItem.appendChild(img);
-                    carouselInner.appendChild(carouselItem);
+ 
+                    carouselItem.appendChild(img); // append the img to the carouselItem
+                    carouselInner.appendChild(carouselItem); // append the carouselItem to the carouselInner
                 })
 
+                // Create a new instance of a bootstrap modal
                 const modalInstance = new bootstrap.Modal(modal);
+                // When the button is clicked, the modal is disaplayed
                 modalInstance.show();
             });
         });

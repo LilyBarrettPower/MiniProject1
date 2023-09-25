@@ -13,7 +13,6 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
         <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAUezllXLRW3PqlWZctyklvHJ1wTLb_ujo&callback=initMap" async defer></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"></script>
-        <!-- <script src="data.js"></script> -->
 
 
     <title>Sarah Barrett Artist</title>
@@ -43,37 +42,44 @@
                         <a class="nav-link" href="#">Shop</a>
                     </li>
                     <li class="nav-item">
+                        <!-- Contact page so contact link is "current" -->
                         <a class="nav-link active"  aria-current="page" href="contact.html">Contact</a>
                     </li>
                 </ul>
             </div>
         </div>
     </nav>
+    <!-- HTML for the input form using bootstrap inputs  -->
     <div class="container">
     <div class="row">
         <form id="contactForm" method="POST">
+            <!-- Method post as next step is to get the form to send data using HTTP to a server to store the data -->
          <div class="col-md-12 my-5 mx-3">
+            <!-- col-md-12 to create responsiveness using bootstrap -->
             <h2 class="text-center">Please fill out your details</h2>
             <p class="text-center">We will get back to you ASAP</p>
-            <div class="mb-3 mt-3">
+            <div class="inputWrap mb-3 mt-3">
                 <input type="text" class="form-control" id="formInput1" placeholder="Please enter your full name" value="">
             </div>
-            <div class="mb-3">
+            <div class="inputWrap mb-3">
                 <input type="text" class="form-control" id="formInput2" placeholder="Please enter your email" value="">
             </div>
-            <div class="mb-3 input-group-lg">
+            <div class="inputWrap mb-3 input-group-lg">
                 <input type="text" class="form-control" id="formInput3" placeholder="Please enter your message" value="">
             </div>
             <div class="text-center">
+            <!-- onclick used to call the getData and submitForm functions when the submit button is clicked  -->
+            <!-- Toggle and target to initiate the modal bootstrap modal pop up when the submit button is clicked -->
             <input type="button" id="submitButton" class="btn btn-outline-dark text-center" onclick="getData()" onclick="submitForm()" value="submit" data-bs-toggle="modal" data-bs-target="#messageSubmittedModal"></button>
             </div>
         </form>
         </div>
+            <!-- Create a div house the google maps API -->
              <div class="col-md-6 mx-3" id="map"></div>
     </div>
 </div>
 
-<!-- Creating an HTML template for the message submitted modal: -->
+<!-- Creating an HTML template for the message submitted bootstrap modal: -->
 <div class="modal fade" id="messageSubmittedModal" tabindex="-1" aria-labelledby="messageSubmittedModalLabel"
     aria-hidden="true">
     <div class="modal-dialog">
@@ -93,41 +99,51 @@
 </div>
 
     <script>
-
-    function initMap() {
-        const myLatLng = {
+// Function to display the Google Maps API 
+    function initMap() { // Create the function which will be called when the page loads
+        const myLatLng = { // create an object that houses the location of the studio
             lat: -43.543697357177734,
             lng: 171.99880981445312
         };
-        const map = new google.maps.Map(document.getElementById("map"), {
+        const map = new google.maps.Map(document.getElementById("map"), { //Create an instance of google maps using google.map.Map constructor
+            // Select the html element "map" to display the map
+            // configure the map:
             center: myLatLng,
             fullscreenControl: false,
             zoomControl: true,
             zoom: 16,
             streetViewControl: false
         });
+        // Create a marker on the map at the position of the studio
         new google.maps.Marker({
             position: myLatLng,
             map,
-            title: "Studio location"
+            title: "Studio location" //When the location is hovered, this title will display
         });
     }
-
+// Function to submit the data to the console from the input form 
     function getData() {
+        // Create variables that contain the form input data:
         let input1 = document.getElementById('formInput1');
         let input2 =  document.getElementById('formInput2');
         let input3 = document.getElementById('formInput3');
 
+        // concatenate the form input data using & as a separator 
         const formData =  input1.value + "&" + input2.value + "&" + input3.value;
+        // log the concatenated data to the console
         console.log(formData);
 
+        // Clear the input fields once the getData function has executed 
         input1.value = '';
         input2.value = '';
         input3.value = '';
         };
 
+// Function to pop up the message submitted modal when the submit button is clicked 
     function submitForm() {
+        // Initialise a new instance of the bootstrap modal in the HTML element "messageSubmittedModal"
         const messageSubmitted = new bootstrap.Modal(document.getElementById('messageSubmittedModal'));
+        // use .show() to display the modal when the function is called (by clicking the submit button):
         messageSubmittedModal.show()
         };
     </script>

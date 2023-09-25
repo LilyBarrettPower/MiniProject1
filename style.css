@@ -205,14 +205,19 @@ body {
 #map {
     height: 400px;
     width: 100%;
-    border: 1px solid #F5Cbdd;
+    border: 2px solid #F5Cbdd;
 }
 
 /* styling for the contact page */
 
 .form-control {
-    border: #F5CBDD;
-    border-width: 5px;
+    border: 2px solid #F5CBDD;
+    font-family: 'Khula', sans-serif;
+}
+
+.form-select {
+    border: 2px solid #F5CBDD;
+    font-family: 'Khula', sans-serif;
 }
 
 h2 {
@@ -225,6 +230,7 @@ p {
 
 .btn {
     font-family: 'Cormorant Garamond', serif;
+    border: 2px solid #F5CBDD;
 }
 
 .carousel-inner img {
