@@ -1,72 +1,93 @@
-
+/* Select the whole content of the page: */
 body {
     background-color: #D2D2D2;
+    /* If any content overflows its box, its hidden: */
     overflow: hidden;
+    /* Height of the body is the entire visible area of the screen: */
     height: 100vh;
+    /* if the content overflows vertically, there will be a scroll bar: */
     overflow-y: auto;
 }
 
+/* Select the banner element: */
 .banner {
+    /* Configure the banner how I want: */
     width: 100%;
     height: 200px;
     padding: 15px;
     background: #FFE6F2;
+    /* background of the banner covers the entire element: */
     background-size: 100%;
+    /* Any positioning properties will be set relative to the normal position */
     position: relative;
-    z-index: 2;
+    /* determines stacking order: */
     /* To ensure floating images don't go over the banner  */
+    z-index: 2;
     font-family: 'Cormorant Garamond', serif;
     font-size: 100px;
     text-align: center;
 }
 
+/* Configure the text inside the banner: */
 .bannerText {
         font-family: 'Cormorant Garamond', serif;
         font-size: 10vw;
         text-align: center;
 }
 
-
 .card {
+    /* Add a background colour to each of the cards */
     background-color: #727375;
+    /* Make the text inside the cards white: */
     color: white;
 }
 
+/* Configure the navbar: */
 .navbar {
     background-color: #F5Cbdd;
-    z-index: 3; 
     /* to ensure the floating images dont go over the navbar */
+    z-index: 3; 
     font-family: 'Cormorant Garamond', serif;
     font-size: x-large;
 }
 
-#formInput {
-    background-color: #FFE6F2;
-    padding: 20px;
-}
-
+/* Choose all elements with the class btn */
 .btn {
+    /* Add a background colour: */
     background-color: #EBEBEB;
+    /* Set the width of the buttons: */
     width: 100px;
+    /* change the font of the btn class */
+    font-family: 'Cormorant Garamond', serif;
+    /* add a border around the btns  */
+    border: 2px solid #F5CBDD;
 }
 
 /* Styling for the images on the home page, including animations */
-
+/* Set the size of the images in viewport so they are responsive to the screen size  */
 .homeImages {
     width: 20vw;
     height: 35vh;
 }
 .image1 {
+    /* Allows other images to be displayed next to it but maintain block level properties */
     display: inline-block;
+    /* positioned relative to its nearest positioned relative: */
     position: absolute;
     top: 50vh;
     left: 15vw;
+    /* ANimation name must be the same as the keyframes name */
     animation-name: floating;
+    /* animation will last 10 seconds */
     animation-duration: 10s;
+    /* animation starts slow, speeds up then slows toward the end */
     animation-timing-function: ease-in-out;
+    /* the animation only goes around once  */
     animation-iteration-count: 1;
 }
 
+/* keyframe for the first animation */
+/* using viewport so that the animations don't go off the page when the screen is smaller  */
 @keyframes floating {
 
     0%,
@@ -77,20 +98,21 @@ body {
 
     25% {
         transform: translate(10vw, 10vh);
-        /* Move the image diagonally */
+        /* Move diagonally */
     }
 
     50% {
         transform: translate(20vw, 15vh);
-        /* Move the image diagonally in the opposite direction */
+        /* Move diagonally again */
     }
 
     75% {
         transform: translate(-5vw, -6vh);
-        /* Move the image diagonally */
+        /* Move diagonally again */
     }
 }
 
+/* image 2 animation styling: */
 .image2 {
     display: inline-block;
     position: absolute;
@@ -102,28 +124,26 @@ body {
     animation-iteration-count: 1;
 }
 
+/* Keyframe 2 */
 @keyframes floating2 {
         0%,
             100% {
                 transform: translate(0, 0);
-                /* Start and end positions */
             }
         
             25% {
                 transform: translate(-45vw, -20vh);
-                /* Move the image diagonally */
             }
             50% {
                 transform: translate(-5vw, -10vh);
-                /* Move the image diagonally in the opposite direction */
             }
         
             75% {
                 transform: translate(20vw, 15vh);
-                /* Move the image diagonally */
             }
 }
 
+/* image 3 animation styling: */
 .image3 {
         display: inline-block;
         position: absolute;
@@ -135,79 +155,84 @@ body {
         animation-iteration-count: 1;
 }
 
+/* keyframes 3: */
 @keyframes floating3 {
 
     0%,
     100% {
         transform: translate(0, 0);
-        /* Start and end positions */
     }
 
     25% {
         transform: translate(-30vw, 25vh);
-        /* Move the image diagonally */
     }
 
     50% {
         transform: translate(0vw, -10vh);
-        /* Move the image diagonally in the opposite direction */
     }
     75% {
         transform: translate(20vw, -30vh);
-        /* Move the image diagonally */
     }
 }
 
 /* Styling for the cards on the portfolio page */
 .card-image img {
+    /* Set the width to 100% of the parent element */
     width: 100%;
+    /* Height adjusts accordingly to the width of the image */
     height: auto;
+    /* round the corner of the images */
     border-radius: 15%;
+    /* add a margin to the top of the images to add some separation */
     margin-top: 50px;
 }
 
+/* Configure the card-title */
 .card-title {
     font-family: 'Cormorant Garamond', serif;
     font-size: x-large;
 }
 
+/* configure the card-text */
 .card-text {
     font-family: 'Khula', sans-serif;
 }
 
 /* Styling for the map used in the contact page - google maps API */
-
 #map {
+    /* set the size of the map */
     height: 400px;
     width: 100%;
+    /* configure the border around the map */
     border: 2px solid #F5Cbdd;
 }
 
 /* styling for the contact page */
-
 .form-control {
+    /* configure the border */
     border: 2px solid #F5CBDD;
+    /* Change the font */
     font-family: 'Khula', sans-serif;
 }
 
 .form-select {
+    /* configure the border */
     border: 2px solid #F5CBDD;
+    /* change the font */
     font-family: 'Khula', sans-serif;
 }
 
+/* change the font for all the h2 elements */
 h2 {
     font-family: 'Cormorant Garamond', serif;
 }
 
+/* Change the font for all the p elements  */
 p {
     font-family: 'Khula', sans-serif;
 }
 
-.btn {
-    font-family: 'Cormorant Garamond', serif;
-    border: 2px solid #F5CBDD;
-}
-
+/* configure the images inside the carousel in the modal */
 .carousel-inner img {
     width: 200px;
     height: auto;
