@@ -188,12 +188,12 @@
             const categoryIcons = template.querySelector('.category-icons'); // Select the category-icons html element to store the categoryIcons
             if(item.category === 'Painting') { // if the category is "Painting" this condition is met
                 const paintingIcon =  document.createElement('i'); //Create the element i for the icon
-                paintingIcon.classList.add('fas', 'fa-paint-brush', 'painting-icon'); // Add the fa-paint-brush icon to the i element
+                paintingIcon.classList.add('fas', 'fa-paint-brush', 'painting-icon'); // Add the classes to the paintinIcon variable
                 paintingIcon.style.float = 'left'; // Make the icon float to the left hand side of the card
                 categoryIcons.appendChild(paintingIcon) // add the painting icon to categoryIcons
             } else { // if the above condition is not met, the following code will run:
                 const sculptureIcon = document.createElement('i');  // create the element i for the icon
-                sculptureIcon.classList.add('fas', 'fa-mountain', 'sculpture-icon'); // add the fa-mountain icon
+                sculptureIcon.classList.add('fas', 'fa-mountain', 'sculpture-icon'); // add the classes to the sculptureIcon variable
                 sculptureIcon.style.float = 'left'; // float the icon to the left of the card
                 categoryIcons.appendChild(sculptureIcon) // add the icon to categoryIcons 
             }
@@ -260,10 +260,10 @@
                 // iterate through the additional images array 
                 item.additionalImages.forEach((imgURL, imgIndex) => {
                     const carouselItem = document.createElement('span'); // create a span element to house the carousel items
-                    carouselItem.classList.add('.carousel-item'); // add each carousel item
+                    carouselItem.classList.add('.carousel-item'); // add the class to the carouselItem span element
                     if(imgIndex === 0) { //if the image is the first image then this condition is met
                         // the active class is added to the first carousel item so that it is displayed initially
-                        carouselItem.classList.add('active');
+                        carouselItem.classList.add('active'); //Add the class active to the carouselItem variable 
                     }
                     const img = document.createElement('img'); //Create a new image element
 
