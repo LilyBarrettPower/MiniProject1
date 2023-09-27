@@ -89,4 +89,5 @@ What kinds of CSS features have you used?
 QUESTION 10:
 How might you extend the features of your application in the future:
 - I want to add a shop page so that people can buy some of the artwork
-- I want to add an instagram API to the home page, but mum doesn't have an instagram yet so I wasn't able to complete this 
+- I want to add an instagram API to the home page, but mum doesn't have an instagram yet so I wasn't able to complete this
+- Make the submit form go to a server 
